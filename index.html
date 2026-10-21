@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111423">
+  <meta name="description" content="Phone Peeking — pengalaman cerita interaktif melalui simulasi smartphone bergaya iOS.">
+  <title>Phone Peeking — Interactive iPhone Story</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="experience">
+    <section class="phone-stage" aria-label="Simulasi interaktif iPhone">
+      <div class="phone" id="phone">
+        <div class="phone-frame-highlight"></div>
+        <div class="screen" id="screen">
+          <div class="wallpaper" id="wallpaper" aria-hidden="true"><span class="sun"></span><span class="mountain rear"></span><span class="mountain front"></span></div>
+          <div class="status-bar" id="statusBar" aria-hidden="true"><span id="statusTime">21:41</span><div class="status-icons"><svg viewBox="0 0 19 15"><rect x="1" y="10" width="3" height="5" rx=".7"/><rect x="6" y="7" width="3" height="8" rx=".7"/><rect x="11" y="4" width="3" height="11" rx=".7"/><rect x="16" y="1" width="3" height="14" rx=".7"/></svg><svg viewBox="0 0 20 16"><path d="M.5 5.6c5.4-5 13.7-5 19 0l-2 2.1c-4.1-3.8-10.9-3.8-15 0zm4 4.1c3.4-3.2 7.6-3.2 11 0l-2.2 2c-2.1-2-4.4-2-6.6 0zm3.3 3.1a3.2 3.2 0 0 1 4.4 0L10 15.2z"/></svg><svg viewBox="0 0 27 14"><rect x="1" y="1.5" width="22" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="3.3" y="3.7" width="16" height="6.6" rx="1.3"/><rect x="24.5" y="4.3" width="2" height="5.4" rx=".8"/></svg></div></div>
+          <div class="dynamic-island" aria-hidden="true"><span></span></div>
+
+          <section class="phone-view lock-screen" id="lockScreen" aria-label="Layar kunci">
+            <div class="lock-date" id="lockDate">Memuat tanggal…</div><div class="lock-time" id="lockTime">--:--</div>
+            <div class="lock-notifications">
+              <button class="notification" data-open="messages"><span class="notification-icon green">●</span><span class="notification-text"><span class="notification-meta"><strong>Pesan · Nara</strong><small>sekarang</small></span><span>Aku cuma mau tahu kamu baik-baik saja.</span></span></button>
+              <button class="notification" data-open="mail"><span class="notification-icon blue">✉</span><span class="notification-text"><span class="notification-meta"><strong>Mail · Nara</strong><small>13 mnt</small></span><span>Tentang hari Senin...</span></span></button>
+            </div>
+            <div class="lock-actions"><button class="lock-circle" data-action="flash" aria-label="Senter">⌁</button><button class="unlock-button" data-action="unlock"><span>⌃</span>Geser ke atas untuk membuka</button><button class="lock-circle" data-open="camera" aria-label="Kamera">◎</button></div>
+          </section>
+
+          <section class="phone-view home-screen" id="homeScreen" hidden aria-label="Layar utama">
+            <div class="home-heading"><small id="homeDate">Memuat tanggal…</small><strong>Selamat datang.</strong><span id="homeTime" class="home-live-time">--:--</span></div>
+            <div class="app-grid" id="appGrid"></div>
+            <div class="page-dots" id="pageDots" aria-label="Navigasi halaman"></div>
+            <div class="dock" id="dock"></div>
+          </section>
+
+          <section class="phone-view application-view" id="applicationView" hidden aria-label="Aplikasi terbuka"></section>
+          <section class="phone-view calling-view" id="callingView" hidden aria-label="Panggilan telepon"></section>
+          <div class="passcode-gate" id="passcodeGate" role="dialog" aria-modal="true" aria-labelledby="passcodeTitle">
+            <div class="passcode-card">
+              <div class="passcode-lock" aria-hidden="true">⌑</div>
+              <h2 id="passcodeTitle">iPhone Terkunci</h2>
+              <p>Masukkan kode sandi untuk melanjutkan</p>
+              <form id="passcodeForm" autocomplete="off">
+                <input id="passcodeInput" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="••••" aria-label="Kode sandi 4 digit" required autofocus>
+                <button type="submit" class="passcode-submit">Buka Kunci</button>
+                <p id="passcodeError" class="passcode-error" aria-live="polite"></p>
+              </form>
+            </div>
+          </div>
+          <div class="toast" id="toast" hidden role="status" aria-live="polite"></div>
+          <button class="home-indicator" data-action="home" aria-label="Kembali ke layar utama"></button>
+        </div>
+      </div>
+    </section>
+
+    
+  </main>
+</body>
+</html>
